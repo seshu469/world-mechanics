@@ -1,109 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#050914" />
+  <meta name="description" content="World Mechanics — independent open research by Sheshu Vardhan Akula on AI, life sciences, quantum systems and the limits of machine understanding." />
+  <meta property="og:title" content="World Mechanics — Sheshu Vardhan Akula" />
+  <meta property="og:description" content="AI as an instrument for describing reality: representation, prediction, biological systems, quantum systems and the limits of machine understanding." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seshu469.github.io/world-mechanics/" />
   <title>World Mechanics — Sheshu Vardhan Akula</title>
-  <meta name="description" content="An independent inquiry: AI as an instrument of physical description. Quantum systems, life sciences, and the limits of machine understanding." />
   <style>
-    :root {
-      --bg: #0b0c0a;
-      --paper: #f3ead7;
-      --ink: #e8dfc8;
-      --muted: #b7ad96;
-      --rule: rgba(227, 214, 180, 0.22);
-      --gold: #c9a45c;
+    :root{
+      --bg:#040812;--bg2:#071322;--glass:rgba(11,22,38,.56);--glass2:rgba(14,30,50,.38);
+      --line:rgba(172,213,255,.18);--line2:rgba(130,240,255,.32);--text:#f3f8ff;--muted:#aab8cb;
+      --cyan:#83efff;--blue:#79a7ff;--violet:#c4a6ff;--max:1200px;--shadow:0 24px 80px rgba(0,0,0,.34)
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif; }
-    canvas#field { position: fixed; inset: 0; z-index: 0; }
-    .veil { position: fixed; inset: 0; z-index: 1; pointer-events: none;
-      background: radial-gradient(ellipse at 50% 0%, rgba(80,60,20,0.18), transparent 45%),
-                  linear-gradient(to bottom, rgba(11,12,10,0.25), rgba(11,12,10,0.92) 70%); }
-    header, main, footer { position: relative; z-index: 2; }
-    header { padding: 14vh 8vw 4vh; max-width: 44rem; }
-    .est { font-family: ui-sans-serif, system-ui, sans-serif; letter-spacing: 0.28em; text-transform: uppercase; font-size: 0.68rem; color: var(--gold); }
-    h1 { font-weight: 500; font-size: clamp(2.6rem, 7vw, 4.6rem); letter-spacing: 0.04em; margin: 0.6rem 0 0.4rem; }
-    .sub { font-style: italic; color: var(--muted); font-size: 1.15rem; max-width: 36rem; }
-    .by { margin-top: 1.6rem; line-height: 1.5; }
-    nav { display: flex; flex-wrap: wrap; gap: 0.7rem 1.3rem; margin-top: 2rem;
-      font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.82rem; letter-spacing: 0.04em; }
-    nav a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
-    main { max-width: 42rem; padding: 0 8vw 10vh; }
-    section { margin: 3.2rem 0; border-top: 1px solid var(--rule); padding-top: 1.6rem; }
-    h2 { font-size: 1.15rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
-    p, li { line-height: 1.7; color: #ddd4be; }
-    blockquote { margin: 1.4rem 0; padding: 0 0 0 1rem; border-left: 1px solid var(--gold); font-style: italic; color: var(--paper); }
-    .grid { display: grid; gap: 1rem; }
-    @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
-    .card { border: 1px solid var(--rule); padding: 1rem 1.1rem; }
-    .card strong { display: block; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
-    a { color: var(--gold); }
-    footer { padding: 2rem 8vw 4rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--rule); }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{margin:0;color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden;background:
+      radial-gradient(70rem 50rem at 78% -10%,rgba(84,91,221,.22),transparent 56%),
+      radial-gradient(55rem 42rem at 8% 34%,rgba(39,178,190,.13),transparent 58%),
+      linear-gradient(180deg,#040812 0%,#06101c 50%,#03070e 100%)}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-3;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,black,transparent 78%)}
+    canvas#space{position:fixed;inset:0;z-index:-4;width:100%;height:100%;opacity:.9}
+    .aurora{position:fixed;inset:auto auto 8% 68%;width:36vw;height:36vw;min-width:320px;min-height:320px;border-radius:50%;background:radial-gradient(circle,rgba(126,132,255,.12),rgba(80,226,255,.05) 38%,transparent 70%);filter:blur(18px);z-index:-2;pointer-events:none}
+    a{color:inherit;text-decoration:none}.wrap{width:min(var(--max),calc(100% - 42px));margin:0 auto}
+    nav{position:sticky;top:0;z-index:30;background:rgba(4,8,18,.58);backdrop-filter:blur(22px) saturate(135%);border-bottom:1px solid var(--line)}
+    nav .wrap{height:70px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:11px;font-size:12px;font-weight:750;letter-spacing:.17em}.brandmark{position:relative;width:18px;height:18px;border:1px solid var(--cyan);border-radius:50%;box-shadow:0 0 22px rgba(131,239,255,.5)}
+    .brandmark:after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px rgba(131,239,255,.8)}
+    .navlinks{display:flex;gap:25px;font-size:12px;color:var(--muted)}.navlinks a:hover{color:#fff}
+    .hero{min-height:90vh;display:grid;align-items:center;padding:90px 0 70px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+    .kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;text-transform:uppercase;letter-spacing:.17em;color:var(--cyan);margin-bottom:19px}
+    h1,h2,.serif{font-family:Iowan Old Style,Baskerville,"Times New Roman",serif}
+    h1{font-size:clamp(70px,9.2vw,132px);line-height:.82;letter-spacing:-.055em;margin:0 0 28px;font-weight:600;text-wrap:balance}
+    .gradient-word{background:linear-gradient(110deg,#fff 16%,#c8f6ff 45%,#b9b5ff 74%,#fff);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead{max-width:800px;font-size:clamp(18px,2vw,26px);line-height:1.42;color:#dce9f8;margin:0 0 34px}.lead em{font-family:Iowan Old Style,Baskerville,serif;color:#fff}
+    .actions{display:flex;gap:11px;flex-wrap:wrap}.btn{display:inline-flex;align-items:center;gap:9px;padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(12,24,42,.50);backdrop-filter:blur(16px);font-size:12px;transition:.25s ease}.btn.primary{border-color:rgba(131,239,255,.44);box-shadow:inset 0 0 26px rgba(131,239,255,.055),0 0 0 1px rgba(131,239,255,.035)}.btn:hover{transform:translateY(-2px);border-color:rgba(131,239,255,.58);background:rgba(18,35,58,.6)}
+    .meta{display:flex;gap:17px;flex-wrap:wrap;margin-top:38px;color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;text-transform:uppercase;letter-spacing:.13em}
+    .world{height:500px;position:relative;display:grid;place-items:center;perspective:900px}.core{width:260px;height:260px;border-radius:50%;position:relative;background:radial-gradient(circle at 33% 30%,rgba(255,255,255,.42),rgba(131,239,255,.10) 20%,rgba(117,130,255,.08) 52%,rgba(3,8,18,.18) 70%);border:1px solid rgba(196,235,255,.28);box-shadow:inset -28px -30px 70px rgba(0,0,0,.46),inset 18px 16px 50px rgba(154,240,255,.12),0 0 80px rgba(96,185,255,.12);backdrop-filter:blur(7px);animation:float 7s ease-in-out infinite}
+    .core:before{content:"WORLD / MODEL / REALITY";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.18em;color:rgba(224,248,255,.68)}
+    .ring{position:absolute;border:1px solid rgba(131,239,255,.23);border-radius:50%;transform-style:preserve-3d}.r1{width:410px;height:150px;transform:rotateX(66deg) rotateZ(-18deg);animation:spin1 18s linear infinite}.r2{width:360px;height:360px;transform:rotateY(70deg) rotateZ(19deg);border-color:rgba(196,166,255,.20);animation:spin2 24s linear infinite}.r3{width:470px;height:230px;transform:rotateX(72deg) rotateZ(34deg);border-color:rgba(121,167,255,.18)}
+    .sat{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}.s1{top:95px;right:45px}.s2{bottom:80px;left:60px;background:var(--violet);box-shadow:0 0 18px var(--violet)}
+    @keyframes float{50%{transform:translateY(-12px) rotate(2deg)}}@keyframes spin1{to{transform:rotateX(66deg) rotateZ(342deg)}}@keyframes spin2{to{transform:rotateY(70deg) rotateZ(379deg)}}
+    section{padding:92px 0;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:185px 1fr;gap:30px;margin-bottom:42px}.num{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:var(--cyan);letter-spacing:.16em;text-transform:uppercase;padding-top:10px}
+    h2{font-size:clamp(36px,5.4vw,66px);line-height:1.03;letter-spacing:-.037em;margin:0;max-width:920px}.copy{max-width:860px;color:var(--muted);font-size:16.5px}
+    .glass{border:1px solid var(--line);background:linear-gradient(145deg,rgba(18,35,58,.62),rgba(7,14,27,.42));border-radius:22px;backdrop-filter:blur(22px) saturate(125%);box-shadow:var(--shadow)}
+    .thesis{margin:38px 0 0;padding:29px 32px;font-family:Iowan Old Style,Baskerville,serif;font-size:clamp(26px,4vw,49px);line-height:1.18;max-width:1000px;position:relative;overflow:hidden}.thesis:after{content:"";position:absolute;width:250px;height:250px;border-radius:50%;right:-130px;top:-140px;border:1px solid rgba(131,239,255,.18);box-shadow:0 0 50px rgba(131,239,255,.04)}
+    .framework{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.level{padding:20px 17px;min-height:230px;position:relative;overflow:hidden}.level:after{content:"";position:absolute;inset:auto -60px -75px auto;width:145px;height:145px;border:1px solid rgba(131,239,255,.12);border-radius:50%}.lno,.tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}.level h3,.card h3{font-size:19px;margin:18px 0 8px}.level p,.card p{color:var(--muted);font-size:13px;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{padding:25px;min-height:215px;position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.025),transparent);transform:translateX(-100%);transition:.5s}.card:hover:before{transform:translateX(100%)}.card h3{font-size:22px}
+    .paper{display:grid;grid-template-columns:1.16fr .84fr;gap:20px;align-items:stretch}.paperbox{padding:31px}.paperbox h3{font-family:Iowan Old Style,Baskerville,serif;font-size:38px;line-height:1.08;margin:12px 0 15px}.paperbox p{color:var(--muted)}.details{padding:10px 26px}.detail{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--line);font-size:12px}.detail:last-child{border:0}.detail span:first-child{color:var(--muted)}
+    .profile{display:grid;grid-template-columns:.74fr 1.26fr;gap:28px}.portrait{min-height:410px;position:relative;overflow:hidden;display:grid;place-items:center}.portrait .letters{font-family:Iowan Old Style,Baskerville,serif;font-size:100px;letter-spacing:-.08em;z-index:2}.portrait .halo{position:absolute;border:1px solid rgba(131,239,255,.21);border-radius:50%}.h1{width:270px;height:270px}.h2{width:410px;height:150px;transform:rotate(-31deg);border-color:rgba(196,166,255,.18)}.h3{width:370px;height:370px;transform:rotateY(68deg)}
+    .profile-copy{padding:25px 12px}.profile-copy h2{font-size:43px}.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.pill{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;padding:8px 10px;border:1px solid var(--line);border-radius:999px;color:#cbd9ea;background:rgba(6,15,28,.5)}
+    .roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.road{padding:23px;min-height:210px}.road strong{font-size:18px;display:block;margin:14px 0 8px}.road p{color:var(--muted);font-size:13px;margin:0}.refs{columns:2;column-gap:42px}.ref{break-inside:avoid;margin:0 0 17px;color:var(--muted);font-size:11.5px}.ref strong{color:#dce8f6;font-weight:600}
+    .notice{padding:22px 25px;margin-top:24px;color:var(--muted);font-size:13px}.notice strong{color:#fff}
+    footer{border-top:1px solid var(--line);padding:45px 0 68px;color:var(--muted);font-size:12px}.footerline{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.quote{font-family:Iowan Old Style,Baskerville,serif;color:#eaf2ff;font-size:19px}
+    @media(max-width:960px){.hero-grid,.paper,.profile{grid-template-columns:1fr}.world{height:400px;order:-1}.core{width:220px;height:220px}.r1{width:350px}.r2{width:310px;height:310px}.r3{width:390px}.framework{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr 1fr}.section-head{grid-template-columns:1fr;gap:8px}.navlinks{display:none}.profile-copy{padding:12px 0}}
+    @media(max-width:580px){.wrap{width:min(var(--max),calc(100% - 28px))}.hero{padding-top:54px}.world{height:315px}.core{width:170px;height:170px}.r1{width:270px;height:110px}.r2{width:245px;height:245px}.r3{width:290px;height:140px}h1{font-size:60px}section{padding:68px 0}.framework,.roadmap{grid-template-columns:1fr}.refs{columns:1}.paperbox{padding:23px}.thesis{padding:24px}.portrait{min-height:320px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.core,.r1,.r2{animation:none}canvas#space{display:none}.btn{transition:none}}
   </style>
 </head>
 <body>
-  <canvas id="field"></canvas>
-  <div class="veil"></div>
-  <header>
-    <div class="est">Est. as an inquiry · 2026</div>
-    <h1>WORLD MECHANICS</h1>
-    <p class="sub">AI, quantum systems, and the limits of machine understanding.</p>
-    <p class="by"><strong>Sheshu Vardhan Akula</strong><br>Platform / DevOps Engineer</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#focus">Focus</a>
-      <a href="#areas">Areas</a>
-      <a href="PAPER.md">The memoir</a>
-    </nav>
-  </header>
-  <main>
-    <section id="about">
-      <h2>About the project</h2>
-      <p>World Mechanics is an independent research project on the use of artificial intelligence as an instrument for describing complex physical and biological systems — while remaining clear about the boundary between machine-generated representations and human understanding.</p>
-      <blockquote>A machine may model, describe, predict, and simulate. Description is not consciousness.</blockquote>
-    </section>
-    <section id="focus">
-      <h2>Research focus</h2>
-      <p>How far can a machine describe physical reality? Where does prediction end and understanding begin? How may computation assist quantum and life-science work without a confusion of categories? How should an engineer distinguish capacity from cognition?</p>
-      <p>The method is that of the platform:</p>
-      <p>Build → Deploy → Observe → Test → Learn → Repeat</p>
-    </section>
-    <section id="areas">
-      <h2>Areas</h2>
-      <div class="grid">
-        <div class="card"><strong>Machine reasoning</strong>Models, inference, representation, and the limits of artificial intelligence.</div>
-        <div class="card"><strong>Quantum systems</strong>Computational and assisted approaches to the description of quantum behaviour.</div>
-        <div class="card"><strong>Life sciences</strong>Modelling and interpretation of biological systems, with restraint at the scale of the cell.</div>
-        <div class="card"><strong>Platform engineering</strong>Making such systems reproducible, observable, and deployable.</div>
+  <canvas id="space" aria-hidden="true"></canvas><div class="aurora"></div>
+  <nav><div class="wrap"><a class="brand" href="#top"><span class="brandmark"></span>WORLD MECHANICS</a><div class="navlinks"><a href="#thesis">Thesis</a><a href="#framework">Framework</a><a href="#research">Research</a><a href="#paper">Paper I</a><a href="#author">Author</a><a href="#roadmap">Roadmap</a></div></div></nav>
+  <main id="top">
+    <div class="hero"><div class="wrap hero-grid">
+      <div>
+        <div class="kicker">Sheshu Vardhan Akula · Independent Open Research · August 2026</div>
+        <h1><span class="gradient-word">World</span><br>Mechanics</h1>
+        <p class="lead">AI as an instrument for describing reality — from <em>machine intelligence</em> to biological and quantum systems, without confusing capability with consciousness.</p>
+        <div class="actions"><a class="btn primary" href="world-mechanics-paper.pdf">Read Paper I ↗</a><a class="btn" href="PAPER.md">Paper source</a><a class="btn" href="https://github.com/seshu469/world-mechanics">GitHub ↗</a></div>
+        <div class="meta"><span>Open research preprint</span><span>v1.0</span><span>CC BY 4.0</span><span>Evidence-led</span><span>AI assistance disclosed</span></div>
       </div>
-    </section>
+      <div class="world" aria-hidden="true"><div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div><div class="core"><span class="sat s1"></span><span class="sat s2"></span></div></div>
+    </div></div>
+
+    <section id="thesis"><div class="wrap">
+      <div class="section-head"><div class="num">01 / Thesis</div><h2>A model can describe part of the world without becoming the world it describes.</h2></div>
+      <p class="copy">World Mechanics treats AI as a scientific instrument: powerful when calibrated, testable and reproducible; unreliable when fluency is mistaken for evidence. The project asks what AI can represent, predict, control and explain — while keeping those claims separate from first-person subjective experience.</p>
+      <div class="thesis glass">Prediction ≠ explanation ≠ reasoning ≠ understanding ≠ consciousness.</div>
+    </div></section>
+
+    <section id="framework"><div class="wrap">
+      <div class="section-head"><div class="num">02 / Five-level framework</div><h2>Five different claims. One discipline: never collapse them into one.</h2></div>
+      <div class="framework">
+        <article class="level glass"><div class="lno">LEVEL 01</div><h3>Representation</h3><p>Preserve useful structure from data in an encoding or learned state.</p></article>
+        <article class="level glass"><div class="lno">LEVEL 02</div><h3>Prediction</h3><p>Generalise to new observations, cases or scientific targets.</p></article>
+        <article class="level glass"><div class="lno">LEVEL 03</div><h3>Intervention</h3><p>Select actions that reliably change a target system in predicted ways.</p></article>
+        <article class="level glass"><div class="lno">LEVEL 04</div><h3>Mechanism</h3><p>Expose computation or causal structure that can be independently tested.</p></article>
+        <article class="level glass"><div class="lno">LEVEL 05</div><h3>Experience</h3><p>Subjective first-person experience. Current research offers indicators, not a decisive operational test for AI consciousness.</p></article>
+      </div>
+      <div class="thesis glass">Evidence for Levels 1–4 does not logically establish Level 5.</div>
+    </div></section>
+
+    <section id="research"><div class="wrap">
+      <div class="section-head"><div class="num">03 / Research domains</div><h2>Where computation meets difficult scientific systems.</h2></div>
+      <div class="grid">
+        <article class="card glass"><div class="tag">Machine Intelligence</div><h3>Inside the model</h3><p>Mechanistic interpretability, internal representation, reasoning behaviour, hallucination, grounding and the difference between an answer and the mechanism that produced it.</p></article>
+        <article class="card glass"><div class="tag">AI × Life Sciences</div><h3>The language of biology</h3><p>Biomolecular structure, genomic foundation models, cell representations and autonomous analysis — evaluated against experimental or quantitative targets.</p></article>
+        <article class="card glass"><div class="tag">AI × Quantum Systems</div><h3>Learning difficult state spaces</h3><p>Machine learning for quantum properties, experimental data, state representation, device control and optimisation without anthropomorphic claims.</p></article>
+      </div>
+    </div></section>
+
+    <section id="paper"><div class="wrap">
+      <div class="section-head"><div class="num">04 / World Mechanics I</div><h2>AI as an Instrument for Describing Reality</h2></div>
+      <div class="paper">
+        <article class="paperbox glass"><div class="tag">OPEN RESEARCH PREPRINT · PAPER I</div><h3>Representation, Prediction, and the Limits of Machine Understanding</h3><p>A review and position paper connecting mechanistic interpretability, biological foundation models and AI-assisted quantum science through a five-level framework for separating capability claims from claims about subjective experience.</p><div class="actions"><a class="btn primary" href="world-mechanics-paper.pdf">Open PDF ↗</a><a class="btn" href="world-mechanics-paper.docx">DOCX</a><a class="btn" href="references.bib">BibTeX</a></div></article>
+        <aside class="details glass"><div class="detail"><span>Author</span><strong>Sheshu Vardhan Akula</strong></div><div class="detail"><span>Type</span><strong>Review + position paper</strong></div><div class="detail"><span>Status</span><strong>Preprint v1.0</strong></div><div class="detail"><span>Prepared</span><strong>18 August 2026</strong></div><div class="detail"><span>License</span><strong>CC BY 4.0</strong></div><div class="detail"><span>DOI</span><strong>Pending archive release</strong></div></aside>
+      </div>
+      <div class="notice glass"><strong>Publication integrity:</strong> this is independent open research, not a peer-reviewed journal article. Established findings, interpretation and speculation are separated; AI assistance is disclosed in the paper; the human author remains responsible for claims and verification.</div>
+    </div></section>
+
+    <section id="author"><div class="wrap">
+      <div class="section-head"><div class="num">05 / Author portfolio</div><h2>Production engineering discipline, redirected toward open scientific work.</h2></div>
+      <div class="profile">
+        <div class="portrait glass"><div class="halo h1"></div><div class="halo h2"></div><div class="halo h3"></div><div class="letters">SVA</div></div>
+        <div class="profile-copy"><div class="kicker">Sheshu Vardhan Akula</div><h2>Platform Engineer · Independent AI Researcher</h2><p class="copy">My engineering work centres on infrastructure, delivery automation, container platforms, observability, security, distributed systems and production reliability. World Mechanics carries the same discipline into research: define the system, preserve provenance, test assumptions, measure failure, reproduce the result and state what remains unknown.</p><div class="skills"><span class="pill">AWS</span><span class="pill">Kubernetes</span><span class="pill">OpenShift</span><span class="pill">Terraform / OpenTofu</span><span class="pill">Helm</span><span class="pill">Argo CD</span><span class="pill">GitLab CI/CD</span><span class="pill">Observability</span><span class="pill">Distributed Systems</span><span class="pill">AI for Science</span></div></div>
+      </div>
+    </div></section>
+
+    <section id="method"><div class="wrap">
+      <div class="section-head"><div class="num">06 / Research method</div><h2>Build → test → observe → reproduce → revise.</h2></div>
+      <div class="grid">
+        <article class="card glass"><div class="tag">Evidence</div><h3>Claims follow sources</h3><p>Primary peer-reviewed research is preferred. Preprints and laboratory reports are labelled. Established findings, interpretation and speculation are kept distinct.</p></article>
+        <article class="card glass"><div class="tag">Reproducibility</div><h3>Research is infrastructure</h3><p>Code, environments, data provenance, random seeds, checksums and evaluation outputs should be versioned wherever possible.</p></article>
+        <article class="card glass"><div class="tag">Secular research</div><h3>No required worldview</h3><p>No religious or anti-religious conclusion is assumed. Scientific claims depend on evidence, mathematics, testability and explicit uncertainty.</p></article>
+      </div>
+    </div></section>
+
+    <section id="roadmap"><div class="wrap">
+      <div class="section-head"><div class="num">07 / Open programme</div><h2>This site is the beginning of a cumulative research portfolio.</h2></div>
+      <div class="roadmap">
+        <article class="road glass"><div class="tag">Experiment A</div><strong>Prediction vs explanation</strong><p>Compare task accuracy, stated rationale and mechanistic probes in a small open model.</p></article>
+        <article class="road glass"><div class="tag">Experiment B</div><strong>Quantum toy system</strong><p>Train a classical model on simulated spin-system data and publish held-out evaluation and error analysis.</p></article>
+        <article class="road glass"><div class="tag">Experiment C</div><strong>Biological representation</strong><p>Test whether open biological embeddings predict a meaningful label beyond a simple baseline.</p></article>
+        <article class="road glass"><div class="tag">Experiment D</div><strong>Reproducibility layer</strong><p>Containerise experiments with fixed dependencies, provenance, tests and one-command execution.</p></article>
+      </div>
+    </div></section>
+
+    <section id="references"><div class="wrap">
+      <div class="section-head"><div class="num">08 / Selected sources</div><h2>A research foundation that can be checked.</h2></div>
+      <div class="refs">
+        <p class="ref">Abramson J, et al. <strong>Accurate structure prediction of biomolecular interactions with AlphaFold 3.</strong> Nature (2024). doi:10.1038/s41586-024-07487-w.</p>
+        <p class="ref">Brixi G, et al. <strong>Genome modelling and design across all domains of life with Evo 2.</strong> Nature (2026). doi:10.1038/s41586-026-10176-5.</p>
+        <p class="ref">Rosen Y, et al. <strong>Universal cell embedding provides a foundation model for cell biology.</strong> Nature (2026). doi:10.1038/s41586-026-10689-z.</p>
+        <p class="ref">Alber S, et al. <strong>CellVoyager: AI CompBio agent generates new insights by autonomously analyzing biological data.</strong> Nature Methods (2026). doi:10.1038/s41592-026-03029-6.</p>
+        <p class="ref">Cho G, Kim D. <strong>Machine learning on quantum experimental data toward solving quantum many-body problems.</strong> Nature Communications (2024). doi:10.1038/s41467-024-51932-3.</p>
+        <p class="ref">Du Y, et al. <strong>Artificial intelligence for representing and characterizing quantum systems.</strong> Nature Reviews Physics (2026). doi:10.1038/s42254-026-00962-5.</p>
+        <p class="ref">Alexeev Y, et al. <strong>Artificial intelligence for quantum computing.</strong> Nature Communications (2025). doi:10.1038/s41467-025-65836-3.</p>
+        <p class="ref">Binz M, et al. <strong>A foundation model to predict and capture human cognition.</strong> Nature (2025). doi:10.1038/s41586-025-09215-4.</p>
+        <p class="ref">Zhang Y, et al. <strong>Exploring the role of large language models in the scientific method: from hypothesis to discovery.</strong> npj Artificial Intelligence (2025). doi:10.1038/s44387-025-00019-5.</p>
+        <p class="ref">Butlin P, et al. <strong>Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.</strong> arXiv (2023), arXiv:2308.08708.</p>
+      </div>
+    </div></section>
   </main>
-  <footer>World Mechanics · Sheshu Vardhan Akula · open draft · <a href="PAPER.md">read the memoir</a></footer>
-  <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script>
-  <script type="module">
-    import * as THREE from 'three';
-    const canvas = document.getElementById('field');
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, 2, 0.1, 100);
-    camera.position.z = 18;
-    const N = 1200, pos = new Float32Array(N*3), col = new Float32Array(N*3);
-    for (let i=0;i<N;i++){
-      const r=4+Math.random()*10, th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1);
-      pos[i*3]=r*Math.sin(ph)*Math.cos(th); pos[i*3+1]=r*Math.sin(ph)*Math.sin(th); pos[i*3+2]=r*Math.cos(ph);
-      const c=0.45+Math.random()*0.5; col[i*3]=c; col[i*3+1]=0.72*c; col[i*3+2]=0.38*c;
-    }
-    const geo=new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(pos,3));
-    geo.setAttribute('color', new THREE.BufferAttribute(col,3));
-    scene.add(new THREE.Points(geo, new THREE.PointsMaterial({size:0.04, vertexColors:true, transparent:true, opacity:0.8})));
-    const ring=new THREE.Mesh(new THREE.TorusGeometry(7.1,0.01,8,180), new THREE.MeshBasicMaterial({color:0xc9a45c, transparent:true, opacity:0.32}));
-    ring.rotation.x=1.2; scene.add(ring);
-    function resize(){ const w=innerWidth,h=innerHeight; renderer.setSize(w,h,false); renderer.setPixelRatio(Math.min(devicePixelRatio,2)); camera.aspect=w/h; camera.updateProjectionMatrix(); }
-    addEventListener('resize', resize); resize();
-    const clock=new THREE.Clock();
-    (function tick(){ const t=clock.getElapsedTime(); scene.rotation.y=t*0.03; ring.rotation.z=t*0.06; renderer.render(scene,camera); requestAnimationFrame(tick); })();
+  <footer><div class="wrap footerline"><div><div class="quote">Machines calculate. Models describe. Experiments decide.</div><div>© 2026 Sheshu Vardhan Akula · World Mechanics</div></div><div>Research text: CC BY 4.0<br>Site code: MIT</div></div></footer>
+  <script>
+    (()=>{
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+      const c=document.getElementById('space'),x=c.getContext('2d');let w,h,dpr,stars=[];
+      function resize(){dpr=Math.min(devicePixelRatio||1,1.8);w=innerWidth;h=innerHeight;c.width=w*dpr;c.height=h*dpr;c.style.width=w+'px';c.style.height=h+'px';x.setTransform(dpr,0,0,dpr,0,0);const n=Math.min(850,Math.floor(w*h/1700));stars=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,z:.25+Math.random()*.75,r:.25+Math.random()*1.05,v:.04+Math.random()*.11}));}
+      function draw(t){x.clearRect(0,0,w,h);for(const s of stars){s.y-=s.v*s.z;if(s.y<-3){s.y=h+3;s.x=Math.random()*w}const pulse=.45+.3*Math.sin(t*.001*s.z+s.x);x.beginPath();x.arc(s.x,s.y,s.r*s.z,0,Math.PI*2);x.fillStyle=`rgba(200,229,255,${Math.max(.12,pulse*s.z)})`;x.fill()}requestAnimationFrame(draw)}
+      addEventListener('resize',resize,{passive:true});resize();requestAnimationFrame(draw);
+    })();
   </script>
 </body>
 </html>

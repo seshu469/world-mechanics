@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://seshu469.github.io/world-mechanics/sitemap.xml
