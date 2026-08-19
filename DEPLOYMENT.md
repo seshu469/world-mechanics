@@ -2,7 +2,7 @@
 
 ## GitHub Pages
 
-Repository: `seshu469/world-mechanics`
+Repository: `seshu469/world mechanics`
 
 1. Copy the release files into the repository root.
 2. Commit and push to `main`.
@@ -11,7 +11,7 @@ Repository: `seshu469/world-mechanics`
 5. Branch: `main`, folder: `/ (root)`.
 6. Save and wait for the Pages deployment to complete.
 
-The package defaults to the known GitHub Pages address `https://seshu469.github.io/world-mechanics/`.
+The package defaults to the known GitHub Pages address `https://seshu469.github.io/world mechanics/`.
 
 ## Optional custom domain
 
@@ -29,21 +29,21 @@ Create or use an ORCID iD and add it to `CITATION.cff`, `.zenodo.json`, the webs
 
 ## DOI / research archive
 
-A DOI should be added only after an actual archive record is published. Recommended workflow: publish the PDF and source release to a DOI-issuing research repository such as Zenodo, then add the issued DOI back to the website, README, `CITATION.cff` and `.zenodo.json` in a follow-up version.
+A DOI should be added only after an actual archive record is published. Recommended workflow: publish the PDF and source release to a DOI issuing research repository such as Zenodo, then add the issued DOI back to the website, README, `CITATION.cff` and `.zenodo.json` in a follow up version.
 
 ## Release checklist
 
-- [ ] Read the complete PDF and approve the wording
-- [ ] Confirm author name and affiliation wording
-- [ ] Add ORCID if available
-- [ ] Push files to GitHub
-- [ ] Verify Pages on desktop and mobile
-- [ ] Tag/release `v1.0.0`
-- [ ] Publish/archive the release and obtain a DOI
-- [ ] Add the DOI back to the project metadata
-- [ ] Only activate `CNAME` after domain ownership is confirmed
-- [ ] Keep the AI-assistance disclosure visible
+  [ ] Read the complete PDF and approve the wording
+  [ ] Confirm author name and affiliation wording
+  [ ] Add ORCID if available
+  [ ] Push files to GitHub
+  [ ] Verify Pages on desktop and mobile
+  [ ] Tag/release `v1.0.0`
+  [ ] Publish/archive the release and obtain a DOI
+  [ ] Add the DOI back to the project metadata
+  [ ] Only activate `CNAME` after domain ownership is confirmed
+  [ ] Keep the AI assistance disclosure visible
 
 ## Publication status wording
 
-Use **independent open research preprint**, **review and position paper**, or **open research draft**. Do not describe the paper as peer reviewed unless it later completes a genuine peer-review process.
+Use **independent open research preprint**, **review and position paper**, or **open research draft**. Do not describe the paper as peer reviewed unless it later completes a genuine peer review process.
