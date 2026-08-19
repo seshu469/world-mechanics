@@ -1,19 +1,19 @@
-cff-version: 1.2.0
+cff version: 1.2.0
 message: "If you use or discuss World Mechanics, please cite this work."
 title: "World Mechanics: AI as an Instrument for Describing Reality"
 type: article
 authors:
-  - family-names: "Akula"
-    given-names: "Sheshu Vardhan"
+    family names: "Akula"
+    given names: "Sheshu Vardhan"
 version: "1.0"
-date-released: "2026-08-18"
-url: "https://seshu469.github.io/world-mechanics/"
-repository-code: "https://github.com/seshu469/world-mechanics"
-license: CC-BY-4.0
+date released: "2026 08 18"
+url: "https://seshu469.github.io/world mechanics/"
+repository code: "https://github.com/seshu469/world mechanics"
+license: CC BY 4.0
 keywords:
-  - artificial intelligence
-  - AI for science
-  - quantum systems
-  - life sciences
-  - mechanistic interpretability
-  - reproducible research
+    artificial intelligence
+    AI for science
+    quantum systems
+    life sciences
+    mechanistic interpretability
+    reproducible research
